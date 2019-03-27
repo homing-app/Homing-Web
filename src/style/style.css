@@ -1,0 +1,27 @@
+.rs-form:not(.rs-form-inline) .rs-form-group:not(:last-child) {
+  margin-bottom: 0px
+}
+
+.rs-form-control-wrapper {
+  width: 100%
+}
+.rs-form-control-wrapper input{
+  width: 100% !important;
+}
+
+.registerForm {
+  margin-top: 25%;
+}
+
+.loginForm {
+  margin-top: 25%;
+}
+
+body {
+  background-color: rgba(241, 241, 241, 0.399)
+}
+
+.rs-panel {
+  background-color: white;
+  
+}
