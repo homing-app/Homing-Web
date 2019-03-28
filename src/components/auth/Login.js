@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import { Panel, FlexboxGrid, Schema, Form, FormGroup, ControlLabel, FormControl, HelpBlock, ButtonToolbar, Button } from 'rsuite';
 import AuthService from '../../services/AuthService';
+import { withAuthConsumer } from '../../contexts/AuthStore'
 
 const { StringType } = Schema.Types;
 
@@ -46,9 +47,10 @@ class Login extends Component {
     }
     console.log(formValue, 'Form Value');
     AuthService.authenticate(formValue)
-    .then(
-      (user) => this.setState({
-        toMain: true
+    .then((user) => this.setState({
+        toHasHome: true
+      },() => {
+        this.props.onUserChanged(user)
       }), (error) => console.error(error)
     )
   }
@@ -60,11 +62,11 @@ class Login extends Component {
   }
 
   render() {
+    const { formValue, toHasHome } = this.state;
 
-    const { formValue, toMain } = this.state;
-
-    if(toMain) {
-      return(<Redirect to="/"/>)
+    if(toHasHome) {
+      console.log()
+      return(<Redirect to={`/${this.props.user.id}/hashome`}/>)
     }
 
     return (
@@ -105,4 +107,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withAuthConsumer(Login)

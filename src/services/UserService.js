@@ -6,7 +6,9 @@ const http = axios.create({
 })
 
 const setuphome = (user) => {
-  return http.post('/:id/setuphome', user)
+  console.log("entra")
+  console.log("user =>", user)
+  return http.put(`/user/${user.id}/setuphome`, user)
     .then(response => response.data)
     .catch(error => error)
 }

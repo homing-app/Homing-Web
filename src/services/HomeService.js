@@ -5,14 +5,14 @@ const http = axios.create({
   withCredentials: true,
 })
 
-const authenticate = (user) => {
-  return http.post('/authenticate', user)
+const authenticate = (home) => {
+  return http.post('/authenticate', home)
     .then(response => response.data)
     .catch(error => error)
 }
 
-const register = (user) => {
-  return http.post('/register', user)
+const register = (home) => {
+  return http.post('home/register', home)
     .then(response => response.data)
 }
 

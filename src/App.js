@@ -11,7 +11,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/register" component={ Register }/>
           <Route exact path="/login" component={ Login }/>
-          <Route path="/hashome" component={ HasHome }/>
+          <Route path="/:id/hashome" component={ HasHome }/>
         </Switch>
       </div>
     );
