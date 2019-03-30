@@ -1,3 +1,14 @@
+body {
+  background-color: rgba(241, 241, 241, 0.399) !important;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* FORMS */
+
 .rs-form:not(.rs-form-inline) .rs-form-group:not(:last-child) {
   margin-bottom: 0px
 }
@@ -26,11 +37,126 @@
   margin-top: 20px
 }
 
-body {
-  background-color: rgba(241, 241, 241, 0.399)
-}
-
 .rs-panel {
   background-color: white;
-  
 }
+
+/* FORMS */
+
+/* NAVBAR */
+
+.rs-icon.fill-color use{
+  fill: currentColor;
+}
+
+.navHomeIcon:hover {
+  color: #FF7B89;
+  transition: color 2s;
+}
+
+.navUserIcon:hover {
+  color: #8A5082;
+  transition: color 2s;
+}
+
+.navListIcon {
+  font-size: 25px !important;
+}
+
+.navListIcon:hover {
+  color: #6F5F90;
+  transition: color 2s;
+}
+
+.navGearIcon {
+  font-size: 25px !important;
+}
+
+.navListIcon:hover {
+  color: #758EB7;
+  font-size: 25px !important;
+  transition: color 2s;
+}
+
+.navBar {
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 88px -21px rgba(0,0,0,0.32);
+  -moz-box-shadow: 0px 0px 88px -21px rgba(0,0,0,0.32);
+  box-shadow: 0px 0px 88px -21px rgba(0,0,0,0.20);
+}
+
+/* NAVBAR */
+
+
+/* MAIN */
+.main {
+
+}
+
+.main h1 {
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 3em;
+  font-weight: 900
+}
+
+.main img {
+  width: 100%;
+  padding: 0px;
+  top: 0px;
+  position: absolute;
+  z-index: -1;
+  height: auto ;
+  max-height: 208px !important;
+}
+
+.infoPanel {
+  margin-top: 100px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.main h3 {
+  font-size: 1.2em;
+  font-weight: 400
+}
+
+.scrolling-wrapper {
+  display: flex;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+.box {
+  background-color: #FF7B89;
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.box i{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.roomDiv p {
+  text-align: center;
+  margin-top: -3px;
+}
+
+.roomDiv {
+ 
+}
+
+/* MAIN */
