@@ -5,10 +5,14 @@
   "dependencies": {
     "axios": "^0.18.0",
     "cors": "^2.8.5",
+    "lodash-es": "^4.17.11",
+    "lodash-move": "^1.1.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
+    "react-spring": "^8.0.18",
+    "react-with-gesture": "^4.0.8",
     "rsuite": "^3.7.9"
   },
   "scripts": {

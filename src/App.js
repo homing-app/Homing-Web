@@ -3,6 +3,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import HasHome from './components/home/HasHome';
 import Main from './components/Main';
+import User from './components/User';
 import { Switch, Route, Redirect} from 'react-router-dom';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
           <Route exact path="/register" component={ Register }/>
           <Route exact path="/login" component={ Login }/>
           <Route exact path="/" component={ Main }/>
+          <Route path="/:id/details" component={ User }/>
           <Route path="/:id/hashome" component={ HasHome }/>
         </Switch>
       </div>

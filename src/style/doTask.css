@@ -1,0 +1,58 @@
+.item {
+  position: relative;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  pointer-events: auto;
+  transform-origin: 50% 50% 0px;
+  padding-left: 32px;
+  padding-right: 32px;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.fg {
+  cursor: -webkit-grab;
+  background-color: #272727;
+  color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  align-items: center;
+  text-align: left;
+  padding-left: 32px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.2);
+  font-size: 14.5px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  transition: box-shadow 0.75s;
+}
+
+.fg:active {
+  cursor: -webkit-grabbing;
+  box-shadow: 0px 15px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+.fg > * {
+  pointer-events: none;
+}
+
+.av {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/checked.svg);
+}
+
+.avx {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/cancel.svg);
+}

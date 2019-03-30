@@ -94,7 +94,7 @@ html, body {
 
 /* MAIN */
 .main {
-
+padding-bottom: 90px
 }
 
 .main h1 {
@@ -159,4 +159,44 @@ html, body {
  
 }
 
+.shoppingList {
+  margin-top:30px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
 /* MAIN */
+
+
+/* USER */
+
+.user {
+  padding-bottom: 90px
+  }
+  
+.user h1 {
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 3em;
+  font-weight: 900
+}
+
+.shoppingListInput {
+  height: 45px;
+  margin-bottom: 15px;
+}
+.shoppingListInput input {
+  height: 45px;
+}
+.shoppingListInput a {
+  width: 50px;
+}
+
+.user img {
+  border-radius: 50%;
+  width: auto;
+  height: 150px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto
+}
