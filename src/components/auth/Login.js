@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { Panel, FlexboxGrid, Schema, Form, FormGroup, ControlLabel, FormControl, HelpBlock, ButtonToolbar, Button } from 'rsuite';
 import AuthService from '../../services/AuthService';
 import { withAuthConsumer } from '../../contexts/AuthStore'
@@ -99,7 +99,9 @@ class Login extends Component {
               </ButtonToolbar>
             </Form>
           </Panel>
+          <h6>No account yet? <Link to="/register">Register</Link></h6>
         </FlexboxGrid.Item>
+        
       </FlexboxGrid>
       </div>
       </div>

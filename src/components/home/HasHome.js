@@ -35,7 +35,7 @@ class HasHome extends Component {
     this.state = {
       formValue: {
         name: '',
-        email: ''
+        email: this.props.user.email
       },
       formCode: {
         id: this.props.user.id,
