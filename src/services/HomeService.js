@@ -6,7 +6,7 @@ const http = axios.create({
 })
 
 const authenticate = (home) => {
-  return http.post('/authenticate', home)
+  return http.post('/', home)
     .then(response => response.data)
     .catch(error => error)
 }
@@ -14,11 +14,19 @@ const authenticate = (home) => {
 const register = (home) => {
   return http.post('home/register', home)
     .then(response => response.data)
+    .catch(error => error)
 }
 
 const logout = () => {
   return http.post('/logout')
     .then(response => response.data)
+    .catch(error => error)
 }
 
-export default { authenticate, register, logout };
+const details = () => {
+  return http.get('home/details')
+    .then(response => response.data)
+    .catch(error => error)
+}
+
+export default { authenticate, register, logout, details };
