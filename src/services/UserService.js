@@ -6,11 +6,27 @@ const http = axios.create({
 })
 
 const setuphome = (user) => {
-  console.log("entra")
-  console.log("user =>", user)
   return http.put(`/user/${user.id}/setuphome`, user)
     .then(response => response.data)
     .catch(error => error)
 }
 
-export default { setuphome };
+const edit = (user, id) => {
+  const data = new FormData()
+  Object.keys(user).forEach(key => {
+    data.append(key, user[key])
+  })
+
+  return http.put(`/user/${id}`, data)
+    .then(response => console.log(response))
+    .catch(error => error);
+}
+
+
+const details = (user) => {
+  return http.get(`user/${user}`)
+    .then(response => response.data)
+    .catch(error => error)
+}
+
+export default { setuphome, details, edit };

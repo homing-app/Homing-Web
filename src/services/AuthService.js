@@ -16,6 +16,7 @@ const register = (user) => {
     .then(response => response.data)
 }
 
+
 const logout = () => {
   return http.post('/logout')
     .then(response => response.data)

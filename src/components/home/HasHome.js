@@ -57,7 +57,6 @@ class HasHome extends Component {
       console.error('Form Error');
       return;
     }
-    console.log(formCode, 'HomeCode');
     UserService.setuphome(formCode)
     .then(
       () => this.setState({
@@ -72,7 +71,6 @@ class HasHome extends Component {
       console.error('Form Error');
       return;
     }
-    console.log(formValue, 'Home Value');
     HomeService.register(formValue)
     .then(
       () => this.setState({
@@ -83,7 +81,6 @@ class HasHome extends Component {
 
   handleCheckEmail() {
     this.form.checkForField('email', checkResult => {
-      console.log(checkResult);
     });
   }
 

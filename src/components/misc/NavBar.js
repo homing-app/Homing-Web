@@ -1,20 +1,19 @@
 import React from 'react';
-import { Container, Header, Content, FlexboxGrid, Nav, Navbar, Footer, Icon } from 'rsuite';
+import { Container, Header, Content, FlexboxGrid, Nav, Icon } from 'rsuite';
+import { withAuthConsumer } from '../../contexts/AuthStore'
 
-const NavBar = () => (
-  <div className="show-container">
-  <Header>HOLITA</Header>
-  <Content>blablabla</Content>
-    <Footer>
-      <Nav>
-        <Nav.Item icon={<Icon icon="home" />}>Home</Nav.Item>
-        <Nav.Item>News</Nav.Item>
-        <Nav.Item>Solutions</Nav.Item>
-        <Nav.Item>Products</Nav.Item>
-        <Nav.Item>About</Nav.Item>
+const NavBar = ({ user }) => (
+  <div className="navBar">
+      <Nav appearance="subtle">
+      <FlexboxGrid justify="space-around" >
+      <FlexboxGrid.Item><Nav.Item href="/">{<Icon className="navHomeIcon" size="2x" icon="square-o"/>}</Nav.Item></FlexboxGrid.Item>
+      <FlexboxGrid.Item><Nav.Item href={`/${user.id}/details`}>{<Icon className="navUserIcon" size="2x" icon="circle-thin"/>}</Nav.Item></FlexboxGrid.Item>
+      <FlexboxGrid.Item><Nav.Item href={`/${user.home}/summary`}>{<Icon className="navListIcon" size="2x" icon="dashboard"/>}</Nav.Item></FlexboxGrid.Item>
+      <FlexboxGrid.Item><Nav.Item href={`/config`}>{<Icon className="navGearIcon" size="2x" icon="gear"/>}</Nav.Item></FlexboxGrid.Item>
+      </FlexboxGrid>
       </Nav>
-    </Footer>
   </div>
 )
 
-export default NavBar
+export default withAuthConsumer(NavBar)
+ 
