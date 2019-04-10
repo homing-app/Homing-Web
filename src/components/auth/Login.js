@@ -45,7 +45,6 @@ class Login extends Component {
       console.error('Form Error');
       return;
     }
-    console.log(formValue, 'Form Value');
     AuthService.authenticate(formValue)
     .then((user) => this.setState({
         toHasHome: true
@@ -57,7 +56,6 @@ class Login extends Component {
 
   handleCheckEmail() {
     this.form.checkForField('email', checkResult => {
-      console.log(checkResult);
     });
   }
 
@@ -65,7 +63,6 @@ class Login extends Component {
     const { formValue, toHasHome } = this.state;
 
     if(toHasHome) {
-      console.log()
       return(<Redirect to={`/${this.props.user.id}/hashome`}/>)
     }
 

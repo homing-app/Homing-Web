@@ -11,7 +11,6 @@ const model = Schema.Model({
   password: StringType().isRequired('This field is required.'),
   verifyPassword: StringType()
     .addRule((value, data) => {
-      console.log(data);
       if (value !== data.password) {
         return false;
       }
@@ -56,7 +55,6 @@ class Register extends Component {
       console.error('Form Error');
       return;
     }
-    console.log(formValue, 'Form Value');
     AuthService.register(formValue)
     .then(
       (user) => this.setState({
@@ -67,7 +65,6 @@ class Register extends Component {
 
   handleCheckEmail() {
     this.form.checkForField('email', checkResult => {
-      console.log(checkResult);
     });
   }
 

@@ -51,12 +51,12 @@ html, body {
 
 .navHomeIcon:hover {
   color: #FF7B89;
-  transition: color 2s;
+  transition: color 1s;
 }
 
 .navUserIcon:hover {
-  color: #8A5082;
-  transition: color 2s;
+  color: rgb(163, 68, 151);
+  transition: color 1s;
 }
 
 .navListIcon {
@@ -65,17 +65,20 @@ html, body {
 
 .navListIcon:hover {
   color: #6F5F90;
-  transition: color 2s;
+  transition: color 1s;
 }
 
 .navGearIcon {
   font-size: 25px !important;
 }
+.navGearIcon:hover {
+  color: rgb(85, 208, 66);
+  transition: color 1s;
+}
 
 .navListIcon:hover {
   color: #758EB7;
-  font-size: 25px !important;
-  transition: color 2s;
+  transition: color 1s;
 }
 
 .navBar {
@@ -104,11 +107,12 @@ padding-bottom: 90px
   font-weight: 900
 }
 
-.main img {
+.homeImg {
   width: 100%;
   padding: 0px;
   top: 0px;
   position: absolute;
+  object-fit: cover;
   z-index: -1;
   height: auto ;
   max-height: 208px !important;
@@ -135,16 +139,44 @@ padding-bottom: 90px
   display: none; 
 }
 
+.usersDiv {
+  position: absolute;
+  right: 28px;
+}
+
+.usersDiv img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 2px;
+  -webkit-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
+-moz-box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
+box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
+}
+
 .box {
-  background-color: #FF7B89;
   width: 60px;
   height: 60px;
   margin: 10px;
-  border-radius: 20px;
+  border-radius: 40px;
+}
+
+.clean {
+  background-image: linear-gradient(45deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.dirty {
+  background-image: linear-gradient(-45deg, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
+}
+
+.medium {
+  background-image: linear-gradient(-45deg, #ffe6d2 0%, #fcb69f 100%);
 }
 
 .box i{
   position: relative;
+  color: white;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -153,10 +185,6 @@ padding-bottom: 90px
 .roomDiv p {
   text-align: center;
   margin-top: -3px;
-}
-
-.roomDiv {
- 
 }
 
 .shoppingList {
@@ -192,11 +220,102 @@ padding-bottom: 90px
   width: 50px;
 }
 
+.shoppingListInput i {
+  margin-top: 5px;
+}
+
 .user img {
+  margin-top: 15px;
   border-radius: 50%;
-  width: auto;
+  width: 150px;
   height: 150px;
+  object-fit: cover;
   display: block;
-    margin-left: auto;
-    margin-right: auto
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.SummaryWrapper {
+  text-align: center
+}
+
+.SummaryWrapper h2 {
+  font-size: 2em;
+  font-weight: 900
+}
+.SummaryWrapper h3 {
+  margin-top: -5px;
+  font-size: 1em;
+  font-weight: 900
+}
+
+.DatePicker {
+  z-index: -10;
+}
+
+/* USER */
+
+/* SUMMARY */
+
+.summary {
+  padding-bottom: 90px
+}
+
+.summary h1 {
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 3em;
+  font-weight: 900
+}
+
+.timeline {
+  margin-top: 20px;
+  padding-left:38px;
+}
+
+.timeline i {
+  margin-left: -7px;
+  margin-top: -10px;
+}
+
+.rs-timeline-item-tail {
+  margin-left: -4px;
+}
+
+.timeline h3 {
+  margin-top: 0px;
+  font-weight:600
+}
+
+
+.timeline h3 i {
+  position: relative;
+  bottom: -3px;
+}
+
+/* SUMMARY */
+
+/* CONFIG */
+
+.config {
+  padding-bottom: 90px
+  }
+
+.mainh1 {
+  padding-top: 10px;
+  padding-left: 30px;
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.rs-form-control-wrapper textarea {
+  min-width: none;
+  min-height: none;
+  max-width: 100%;
+  max-height: none;
+}
+.itemMap {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

@@ -23,10 +23,21 @@ const logout = () => {
     .catch(error => error)
 }
 
-const details = () => {
-  return http.get('home/details')
+const details = (home) => {
+  return http.get(`home/${home}`)
     .then(response => response.data)
     .catch(error => error)
 }
 
-export default { authenticate, register, logout, details };
+const edit = (home, id) => {
+  const data = new FormData();
+  Object.keys(home).forEach(key => {
+    data.append(key, home[key]);
+  })
+
+  return http.put(`/home/${id}`, data)
+    .then(response => console.log(response))
+    .catch(error => error);
+}
+
+export default { authenticate, register, logout, details, edit };
