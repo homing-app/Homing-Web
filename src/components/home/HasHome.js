@@ -85,8 +85,12 @@ class HasHome extends Component {
   }
 
   render() {
-
+    {console.log(this.state)}
     const { formValue, toMain, formCode } = this.state;
+    
+    if(this.props.user.home){
+      return(<Redirect to="/"/>)
+    }
 
     if(toMain) {
       return(<Redirect to="/"/>)

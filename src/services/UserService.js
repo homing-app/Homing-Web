@@ -26,16 +26,21 @@ const edit = (user, id) => {
 const details = (id) => {
   return http.get(`user/${id}`)
     .then(response => response.data)
-    .catch(error => error)
 }
 
 const remove = (id) => {
   const data = {
     home: null
   }
-  return http.put(`/user/${id}/removehome`, data)
+  return http.put(`user/${id}/removehome`, data)
     .then(response => console.log(response))
     .catch(error => error);
 }
 
-export default { setuphome, details, edit, remove };
+const logout = () => {
+  return http.post('/logout')
+    .then(response => console.log(response))
+    .catch(error => error);
+}
+
+export default { setuphome, details, edit, remove, logout };

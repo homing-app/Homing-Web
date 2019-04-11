@@ -18,10 +18,16 @@ const Room = (props) => {
 
   const getIconName = (name) => {
     switch(name) {
-      case 'Dormitorio': 
-        return 'digg'
+      case 'Cocina': 
+        return 'cutlery'
       case 'Baño':
-        return 'edge'
+        return 's15'
+      case 'Salón':
+        return 'tv'
+      case 'Dormitorio':
+        return 'bed'
+      case 'Estudio':
+        return 'book'
       default: return 'cube'
     }
   }

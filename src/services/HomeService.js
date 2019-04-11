@@ -26,7 +26,6 @@ const logout = () => {
 const details = (home) => {
   return http.get(`home/${home}`)
     .then(response => response.data)
-    .catch(error => error)
 }
 
 const edit = (home, id) => {

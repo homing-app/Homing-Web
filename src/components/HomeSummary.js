@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import NavBar from './misc/NavBar';
+import { Redirect } from 'react-router-dom';
 import { Timeline,Icon, FlexboxGrid } from 'rsuite';
 import { Spring } from 'react-spring/renderprops'
 import { withAuthConsumer } from '../contexts/AuthStore'
@@ -14,7 +15,8 @@ class HomeSummary extends Component {
     users: [],
     itemResume:[],
     taskResume: [],
-    roomResume: []
+    roomResume: [],
+    toLogin: false
   }
 
   componentDidMount = () => {
@@ -27,7 +29,7 @@ class HomeSummary extends Component {
     service.details(this.props.user.home)
     .then(response => {
       this.setState({...response});
-    })
+    },error => {this.setState({toLogin : true})})
   }
 
   getLog = () => {
@@ -55,7 +57,11 @@ class HomeSummary extends Component {
   }
   
   render() {
-    console.log(this.state)
+
+    if(this.state.toLogin) {
+      return(<Redirect to="/login"/>)
+    }
+
     const { itemResume, taskResume, roomResume, users} = this.state
     const userLabels = users.map(user => user.name.split(" ")[0])
     const dataItem = {

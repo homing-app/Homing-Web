@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from './misc/NavBar';
 import { Panel } from 'rsuite';
+import { Redirect, Link } from 'react-router-dom';
 import { Spring } from 'react-spring/renderprops'
 import { withAuthConsumer } from '../contexts/AuthStore'
 import service from '../services/HomeService'
@@ -27,18 +28,18 @@ class Main extends Component {
     items: [],
     tasks: [],
     rooms: [],
-    moments: []
+    moments: [],
+    toLogin: false
   }
 
   getDetails = () => {
     service.details(this.props.user.home)
-    .then(response => {
-      this.setState({...this.state, ...response});
-    })
-  }
+    .then(response => {this.setState({...this.state, ...response})}
+    , error => {this.setState({toLogin : true})}
+    )
+  }   
   componentDidMount = () => {
     this.getDetails()
-    console.log(this)
   }
 
   completeTask = (id, type) => {
@@ -128,7 +129,13 @@ class Main extends Component {
 }
 
   render() {
+
+    if(this.state.toLogin) {
+      return(<Redirect to="/login"/>)
+    }
+
     return (
+      
       <div>
         <div className="main">
           <Spring
@@ -172,7 +179,6 @@ class Main extends Component {
             {props => <h2 style={props} >Dates</h2>}
           </Spring>
           <div className="datesList">
-          {console.log(this.state.moments)}
           {this.state.moments.length &&  (this.state.moments.filter(item => moment(item.moment).isSameOrAfter(Date.now())).map(date => <DateItem key={date._id} {...date}/>).slice(0,8)) }
           </div>
           </div>

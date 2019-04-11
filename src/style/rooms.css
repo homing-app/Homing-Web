@@ -1,0 +1,69 @@
+.kitchen {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/009-kitchen.svg);
+}
+
+.room {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/002-bed.svg);
+}
+
+.bath {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/003-bath.svg);
+}
+
+.stairs {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/005-stairs.svg);
+}
+
+.workSpace {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/007-workspace.svg);
+}
+
+.plants {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/008-plant.svg);
+}
+
+.livingRoom {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/010-tv.svg);
+}
+
+.dressingRoom {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/006-entrance.svg)
+}
+
+.kitchen {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/009-kitchen.svg);
+}
+
+.dinningRoom {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: url(../components/home/src/rooms\ icons/004-dinner-table.svg);
+}

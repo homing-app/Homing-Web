@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import NavBar from './misc/NavBar';
+import { Redirect } from 'react-router-dom';
 import { Alert, Form, message, HelpBlock, Schema, InputGroup ,Input ,Icon, FlexboxGrid, DatePicker } from 'rsuite';
 import ShoppingList from './home/ShoppingList'
 import service from '../services/HomeService'
@@ -38,7 +39,8 @@ constructor(props) {
     log: [],
     itemResume:[],
     taskResume: [],
-    roomResume: []
+    roomResume: [],
+    toLogin: false
   }
 }
 
@@ -46,7 +48,7 @@ constructor(props) {
     userService.details(this.props.user.id)
     .then(items => {
       this.setState({...this.state, ...items})
-    })
+    },error => {this.setState({toLogin : true})})
   }
 
   getLog = () => {
@@ -282,6 +284,11 @@ constructor(props) {
 
   
   render() {
+
+    if(this.state.toLogin) {
+      return(<Redirect to="/login"/>)
+    }
+
     const { formItem,formTask,formMoment, itemResume, taskResume, roomResume  } = this.state
 
     const dataItem = {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Redirect, Link } from 'react-router-dom';
 import { Panel, FlexboxGrid, Schema, Form, FormGroup, ControlLabel, FormControl, HelpBlock, ButtonToolbar, Button } from 'rsuite';
 import AuthService from '../../services/AuthService';
+import userService from '../../services/UserService'
 import { withAuthConsumer } from '../../contexts/AuthStore'
 
 const { StringType } = Schema.Types;
@@ -61,6 +62,7 @@ class Login extends Component {
 
   render() {
     const { formValue, toHasHome } = this.state;
+
 
     if(toHasHome) {
       return(<Redirect to={`/${this.props.user.id}/hashome`}/>)

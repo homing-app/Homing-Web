@@ -1,0 +1,15 @@
+{
+  "short_name": "Homing App",
+  "name": "Manage your home like ",
+  "icons": [
+    {
+      "src": "homing-app.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#E87F47",
+  "background_color": "#ffffff"
+}

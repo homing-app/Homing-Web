@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavBar from './misc/NavBar'
-import { Redirect,Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { withAuthConsumer } from '../contexts/AuthStore'
 import { Spring } from 'react-spring/renderprops'
 import { Input, Tag, TagGroup, Divider, Uploader, Icon, Panel, FlexboxGrid, Schema, Form, FormGroup, ControlLabel, FormControl, HelpBlock, ButtonToolbar, Button } from 'rsuite';
@@ -79,7 +79,9 @@ class Config extends Component {
       formInfoError: {},
       rooms: [],
       info:[],
-      users: []
+      users: [],
+      logout: false,
+      toLogin: false
     };
     this.handleSubmitUser = this.handleSubmitUser.bind(this);
     this.handleSubmitHome = this.handleSubmitHome.bind(this);
@@ -177,7 +179,7 @@ class Config extends Component {
     const nextRooms = rooms.filter(item => item._id !== tag._id);
     this.setState({
       rooms: nextRooms
-    }, () => RoomService.remove(tag.id));
+    }, () => RoomService.remove(tag._id));
   }
 
   getDetails = () => {
@@ -194,7 +196,7 @@ class Config extends Component {
         users: response.users,
         
       });
-    })
+    }, error => {this.setState({toLogin : true})})
   }
 
   componentDidMount = () => {
@@ -206,10 +208,22 @@ class Config extends Component {
     this.setState({ inputValue });
   }
 
+  userLogout = () =>{
+    this.setState({logout: true}, () => UserService.logout() )
+  }
+
 
   render() {
 
-    const { formUser, formHome, formRoom, formInfo, info, rooms, users  } = this.state;
+    const { formUser, formHome, formRoom, formInfo, info, rooms, users, logout  } = this.state;
+
+    if(this.state.toLogin) {
+      return(<Redirect to="/login"/>)
+    }
+
+    if(logout) {
+      return(<Redirect to={`/login`}/>)
+    }
 
     return (
       <div className="registerPage config">
@@ -249,6 +263,10 @@ class Config extends Component {
                 <Button appearance="primary" onClick={this.handleSubmitUser} block> Submit </Button>
               </ButtonToolbar>
             </Form>
+            <Divider />
+            <ButtonToolbar>
+                <Button color="red" onClick={this.userLogout} block> Logout </Button>
+              </ButtonToolbar>
           </Panel>
         </FlexboxGrid.Item>
       </FlexboxGrid>
