@@ -16,6 +16,16 @@ const Room = (props) => {
     props.cleanRoom(props._id, "dirty")
   }
 
+  const getIconName = (name) => {
+    switch(name) {
+      case 'Dormitorio': 
+        return 'digg'
+      case 'Baño':
+        return 'edge'
+      default: return 'cube'
+    }
+  }
+
   const speaker = (
     <Popover className="roomPopover" title="State">
     <IconButton onClick={changeToDirty} size="lg" icon={<Icon icon="thumbs-o-down" />} color="red" circle />
@@ -28,7 +38,7 @@ const Room = (props) => {
     <Whisper placement="auto" trigger="click" speaker={speaker}>
     <div className="roomDiv">
       <div className={`box ${props.state}`}>
-        <Icon size="2x" icon="cube"/>
+        <Icon size="2x" icon={getIconName(props.name)}/>
       </div>
     <p>{props.name}</p>
   </div>

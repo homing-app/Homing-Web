@@ -63,6 +63,7 @@ class Config extends Component {
       formHome: {
         name: "",
         attachment: "",
+        homeCode: ""
       },
       formRoom: {
         name: "",
@@ -77,7 +78,8 @@ class Config extends Component {
       formRoomError: {},
       formInfoError: {},
       rooms: [],
-      info:[]
+      info:[],
+      users: []
     };
     this.handleSubmitUser = this.handleSubmitUser.bind(this);
     this.handleSubmitHome = this.handleSubmitHome.bind(this);
@@ -160,12 +162,22 @@ class Config extends Component {
     },() => InfoService.remove(tag._id));
   }
 
+  handleUserRemove(user) {
+    console.log(user)
+    const { users } = this.state;
+    const nextusers = users.filter(item => item.id !== user.id);
+
+    this.setState({
+      users: nextusers
+    },() => UserService.remove(user.id));
+  }
+
   handleRoomRemove(tag) {
     const { rooms } = this.state;
     const nextRooms = rooms.filter(item => item._id !== tag._id);
     this.setState({
       rooms: nextRooms
-    }, () => RoomService.remove(tag._id));
+    }, () => RoomService.remove(tag.id));
   }
 
   getDetails = () => {
@@ -174,16 +186,20 @@ class Config extends Component {
       this.setState({
         formHome: {
           name: response.name,
-          attachment: response.attachment
+          attachment: response.attachment,
+          homeCode: response.homeCode
         },
         rooms: response.rooms,
         info: response.info,
+        users: response.users,
+        
       });
     })
   }
 
   componentDidMount = () => {
     this.getDetails()
+    console.log(this)
   }
 
   handleInputChange(inputValue) {
@@ -193,7 +209,7 @@ class Config extends Component {
 
   render() {
 
-    const { formUser, formHome, formRoom, formInfo, info, rooms  } = this.state;
+    const { formUser, formHome, formRoom, formInfo, info, rooms, users  } = this.state;
 
     return (
       <div className="registerPage config">
@@ -202,15 +218,6 @@ class Config extends Component {
         to={{ opacity: 1 }}>
         {props => <h1 className="mainh1">Config</h1>}
       </Spring>
-      <div>
-      <FlexboxGrid justify="center">
-        <FlexboxGrid.Item colspan={20}>
-        <h1>App preferences</h1>
-          <Panel bordered>
-          </Panel>
-        </FlexboxGrid.Item>
-      </FlexboxGrid>
-      </div>
       <div>
       <FlexboxGrid justify="center">
         <FlexboxGrid.Item colspan={20}>
@@ -270,6 +277,7 @@ class Config extends Component {
                 </Uploader>
               </FlexboxGrid>
               <TextField name="name" label="Home name" />
+              <TextField disabled name="homeCode" label="homeCode"/>
               <ButtonToolbar>
                 <Button appearance="primary" onClick={this.handleSubmitHome} block> Submit </Button>
               </ButtonToolbar>
@@ -321,6 +329,10 @@ class Config extends Component {
                   </ButtonToolbar>
                 </Form>
               </Panel>
+              <h3>Users</h3>
+              <TagGroup className="itemMap">
+              {users.length && users.map((user) => (<Tag key={user.id} closable onClose={() => this.handleUserRemove(user)}>{user.name}</Tag>))}
+              </TagGroup>
           </Panel>
         </FlexboxGrid.Item>
       </FlexboxGrid>

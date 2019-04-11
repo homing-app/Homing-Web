@@ -23,5 +23,3 @@ const UserBullet = (props) => {
 }
 
 export default UserBullet;
-
-

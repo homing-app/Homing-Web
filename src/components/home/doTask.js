@@ -34,7 +34,7 @@ const DoTask = (props) => {
   const avSize = x.interpolate({ map: Math.abs, range: [50, 300], output: ['scale(0.5)', 'scale(1)'], extrapolate: 'clamp' })
   const avxSize = x.interpolate({ map: Math.abs, range: [50, 300], output: ['scale(0.5)', 'scale(1)'], extrapolate: 'clamp' })
   return (
-    <animated.div {...bind()} className="item" style={{ background: bg }} onMouseUp={handleDrag} >
+    <animated.div {...bind()} className="item" style={{ background: bg }} onTouchEnd={handleDrag} onMouseUp={handleDrag} >
       <animated.div className="av" style={{ transform: avSize, justifySelf: 'end' }} />
       <animated.div className="avx" style={{ transform: avxSize, justifySelf: 'start' }} />
       <animated.div onDragCapture={handleDrag} className="fg" style={{ transform: interpolate([x, size], (x, s) => `translate3d(${x}px,0,0) scale(${s})`) }}>

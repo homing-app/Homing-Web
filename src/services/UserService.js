@@ -23,10 +23,19 @@ const edit = (user, id) => {
 }
 
 
-const details = (user) => {
-  return http.get(`user/${user}`)
+const details = (id) => {
+  return http.get(`user/${id}`)
     .then(response => response.data)
     .catch(error => error)
 }
 
-export default { setuphome, details, edit };
+const remove = (id) => {
+  const data = {
+    home: null
+  }
+  return http.put(`/user/${id}/removehome`, data)
+    .then(response => console.log(response))
+    .catch(error => error);
+}
+
+export default { setuphome, details, edit, remove };

@@ -96,7 +96,9 @@ constructor(props) {
           idTask: task._id,
           state: "created",
           home: task.home,
-          user: this.props.user.id
+          user: this.props.user.id,
+          username: this.props.user.name,
+          userImage: this.props.user.attachment
         }
         ItemLogService.create(log)
           .then(console.log("log created!"))
@@ -138,7 +140,9 @@ constructor(props) {
           idTask: item._id,
           state: "created",
           home: item.home,
-          user: this.props.user.id
+          user: this.props.user.id,
+          username: this.props.user.name,
+          userImage: this.props.user.attachment
         }
         ItemLogService.create(log)
           .then(console.log("log created!"))
@@ -178,7 +182,7 @@ constructor(props) {
       name: this.state.formMoment.name,
       moment: this.state.formMoment.moment,
       user: this.props.user.id,
-      home: this.props.user.home
+      home: this.props.user.home,
     })
     .then(
       (moment) => {
@@ -200,9 +204,11 @@ constructor(props) {
             type: "Moment",
             name: moment.name,
             idTask: moment._id,
-            state: `created at ${moment.moment}`,
+            state: `created`,
             home: moment.home,
-            user: this.props.user.id
+            user: this.props.user.id,
+            username: this.props.user.name,
+            userImage: this.props.user.attachment
           }
           ItemLogService.create(log)
             .then(console.log("log created!"))
@@ -224,7 +230,9 @@ constructor(props) {
           idTask: response._id,
           state: response.state,
           home: response.home,
-          user: this.props.user.id
+          user: this.props.user.id,
+          username: this.props.user.name,
+          userImage: this.props.user.attachment
         }
         ItemLogService.create(log)
           .then(console.log("log created!"))
@@ -241,7 +249,9 @@ constructor(props) {
           idTask: response._id,
           state: response.state,
           home: response.home,
-          user: this.props.user.id
+          user: this.props.user.id,
+          username: this.props.user.name,
+          userImage: this.props.user.attachment
         }
         ItemLogService.create(log)
           .then(console.log("log created!"))
@@ -278,24 +288,24 @@ constructor(props) {
       labels: ['you', 'others'],
       datasets: [{
           data: itemResume,
-          backgroundColor: ['#FF6384', '#36A2EB'],
-          hoverBackgroundColor: ['#FF6384', '#36A2EB']
+          backgroundColor: ['#36A2EB','#FF6384'],
+          hoverBackgroundColor: ['#36A2EB','#FF6384']
       }]
   };
   const dataTask = {
     labels: ['you', 'others'],
     datasets: [{
         data: taskResume,
-        backgroundColor: ['#FFCE56', '#36A2EB'],
-        hoverBackgroundColor: ['#FFCE56', '#36A2EB']
+        backgroundColor: ['#36A2EB','#FF6384'],
+        hoverBackgroundColor: ['#36A2EB','#FF6384']
     }]
 };
 const dataRoom = {
   labels: ['you', 'others'],
   datasets: [{
       data: roomResume,
-      backgroundColor: ['#FF6384', '#36A2EB'],
-      hoverBackgroundColor: ['#FF6384', '#36A2EB']
+      backgroundColor: ['#36A2EB','#FF6384'],
+      hoverBackgroundColor: ['#36A2EB','#FF6384']
   }]
 };
 
@@ -309,7 +319,7 @@ const dataRoom = {
           </Spring>
           <img src={this.state.attachment}/>
           <div className="SummaryWrapper">
-          <FlexboxGrid justify="center">
+          <FlexboxGrid justify="space-around">
             <FlexboxGrid.Item colspan={6}>
             <Doughnut data={dataItem} legend={{display: false}} width={200} height={200}/>
             <h2>Items</h2>
@@ -393,7 +403,7 @@ const dataRoom = {
           </form>
           </div>
         </div>
-      <NavBar/>
+      <NavBar style={{zIndex: 10}}/>
       </div>
 
     )

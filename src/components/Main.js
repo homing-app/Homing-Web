@@ -12,6 +12,8 @@ import RoomService from '../services/RoomService'
 import ItemLogService from '../services/ItemLogService'
 import UserBullet from './home/UserBullet'
 import InfoItem from './home/InfoItem'
+import DateItem from './home/DateItem';
+var moment = require('moment');
 
 class Main extends Component {
 
@@ -24,7 +26,8 @@ class Main extends Component {
     users: [],
     items: [],
     tasks: [],
-    rooms: []
+    rooms: [],
+    moments: []
   }
 
   getDetails = () => {
@@ -50,7 +53,9 @@ class Main extends Component {
               idTask: response._id,
               state: response.state,
               home: response.home,
-              user: this.props.user.id
+              user: this.props.user.id,
+              username: this.props.user.name,
+              userImage: this.props.user.attachment
             }
             ItemLogService.create(log)
               .then(console.log("log created!"))
@@ -68,7 +73,9 @@ class Main extends Component {
             idTask: response._id,
             state: response.state,
             home: response.home,
-            user: this.props.user.id
+            user: this.props.user.id,
+            username: this.props.user.name,
+            userImage: this.props.user.attachment
           }
           ItemLogService.create(log)
             .then(console.log("log created!"))
@@ -110,7 +117,9 @@ class Main extends Component {
           idTask: response._id,
           state: response.state,
           home: response.home,
-          user: this.props.user.id
+          user: this.props.user.id,
+          username: this.props.user.name,
+          userImage: this.props.user.attachment
         }
         ItemLogService.create(log)
           .then(console.log("log created!"))
@@ -130,7 +139,7 @@ class Main extends Component {
           <div className="scrolling-wrapper usersDiv">
           {this.state.users.length && this.state.users.map(user => <UserBullet {...user} key={user.name} />)}
           </div>
-          <img className="homeImg" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1949&q=80"/>
+          <img className="homeImg" src={this.state.attachment}/>
           <div className="infoPanel">
           <Panel  header={<h3>Info</h3>} bordered collapsible>
           {this.state.info && this.state.info.map(infoItem => <InfoItem {...infoItem} key={infoItem._id} />) }
@@ -156,8 +165,19 @@ class Main extends Component {
           </Spring>
           {this.state.tasks.length &&  (this.state.tasks.filter(item => item.state !== "done" ).map(task => <DoTask key={task._id} type="task" id={task._id} completeTask={this.completeTask} deleteTask={this.deleteTask} title={task.name}/>)) }
           </div>
+          <div className="shoppingList">
+          <Spring
+            from={{ opacity: 0 }}
+            to={{ opacity: 1 }}>
+            {props => <h2 style={props} >Dates</h2>}
+          </Spring>
+          <div className="datesList">
+          {console.log(this.state.moments)}
+          {this.state.moments.length &&  (this.state.moments.filter(item => moment(item.moment).isSameOrAfter(Date.now())).map(date => <DateItem key={date._id} {...date}/>).slice(0,8)) }
+          </div>
+          </div>
         </div>
-      <NavBar/>
+      <NavBar style={{zIndex: 10}}/>
       </div>
 
     )
