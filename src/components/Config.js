@@ -15,6 +15,7 @@ const { StringType } = Schema.Types;
 const userModel = Schema.Model({
   name: StringType().isRequired('This field is required.'),
   password: StringType().isRequired('This field is required.').minLength(6, 'The field cannot be less than 6 characters'),
+  phone: StringType().isRequired('This field is required.').minLength(9, 'The field cannot be less than 6 characters').maxLength(9, 'The field cannot be less than 6 characters'),
   verifyPassword: StringType()
     .addRule((value, data) => {
       if (value !== data.password) {
@@ -56,6 +57,7 @@ class Config extends Component {
         name: this.props.user.name,
         email: this.props.user.email,
         password: "",
+        phone: "",
         verifyPassword: '',
         attachment: "",
       },
@@ -257,6 +259,7 @@ class Config extends Component {
               </FlexboxGrid>
               <TextField name="name" label="Name" />
               <TextField disabled name="email" label="Email"/>
+              <TextField name="phone" label="Phone number" />
               <TextField name="password" label="New Password" type="password" />
               <TextField name="verifyPassword" label="Verify password" type="password"/>
               <ButtonToolbar>
