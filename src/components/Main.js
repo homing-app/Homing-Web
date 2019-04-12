@@ -130,9 +130,9 @@ class Main extends Component {
 
   render() {
 
-    if(this.state.toLogin) {
-      return(<Redirect to="/login"/>)
-    }
+    // if(this.state.toLogin) {
+    //   return(<Redirect to="/login"/>)
+    // }
 
     return (
       
