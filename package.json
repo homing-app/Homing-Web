@@ -1,6 +1,5 @@
 {
   "name": "homing-web",
-  "homepage": "https://homing-app.github.io/Homing-Web/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
