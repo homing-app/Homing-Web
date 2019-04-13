@@ -106,7 +106,7 @@ padding-bottom: 90px
   padding-top: 10px;
   padding-left: 30px;
   font-size: 3em;
-  font-weight: 600;
+  font-weight: 400;
   text-shadow: 0px 0px 17px rgba(0,0,0,0.38);
 }
 
@@ -217,7 +217,7 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
 }
 
 .date h2 {
-  font-weight: 900;
+  font-weight: 400;
   margin: 0px;
 }
 
@@ -234,7 +234,7 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
   padding-top: 10px;
   padding-left: 30px;
   font-size: 3em;
-  font-weight: 900
+  font-weight: 400
 }
 
 .shoppingListInput {
@@ -271,12 +271,12 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
 
 .SummaryWrapper h2 {
   font-size: 2em;
-  font-weight: 900
+  font-weight: 400
 }
 .SummaryWrapper h3 {
   margin-top: -5px;
   font-size: 1em;
-  font-weight: 900
+  font-weight: 400
 }
 
 .DatePicker {
@@ -295,7 +295,7 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
   padding-top: 10px;
   padding-left: 30px;
   font-size: 3em;
-  font-weight: 900
+  font-weight: 400
 }
 
 .timeline {
@@ -314,7 +314,7 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
 
 .timeline h3 {
   margin-top: 0px;
-  font-weight:600
+  font-weight:400
 }
 
 
@@ -335,7 +335,7 @@ box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
   padding-top: 10px;
   padding-left: 30px;
   font-size: 3em;
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .rs-form-control-wrapper textarea {
